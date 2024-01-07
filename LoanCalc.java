@@ -40,12 +40,12 @@ public class LoanCalc {
 	*/
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
-    	double increment = 0.0001 ;
+    	//double increment = 0.0001 ;
     	iterationCounter = 0 ; 
     	double x = loan / n ;
     	while (endBalance(loan, rate, n, x) >= epsilon)
     	{
-    		x += increment ;
+    		x += epsilon ;
     		iterationCounter++; 
     	}
     	return x;
@@ -59,7 +59,6 @@ public class LoanCalc {
 	*/
 	// Side effect: modifies the class variable iterationCounter.
 
-	//Second Version After Maya Told Me About The L H g thing)
 	    public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
     	iterationCounter = 0 ; 
        	double L = loan / n ;
@@ -77,23 +76,6 @@ public class LoanCalc {
     	return g; 
       }
 
-      //My First Version Alone
- //   public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
-   // 	iterationCounter = 0 ; 
-    //	double x = loan / n ; 
-    //	double lo = x ;
-    //	double hi = loan ;
-    //	while (Math.abs(endBalance(loan, rate, n, x)) >= epsilon)
-    //	{
-    //		if(endBalance(loan, rate, n, x) > 0)
-    //			lo = x;
-    //		else 
-    //			hi = x;
-    //		x = ( lo + hi ) / 2 ;
-    //		iterationCounter++;
-    //	}
-    //	return x;
-      //}
 	
 	/**
 	* Computes the ending balance of a loan, given the sum of the loan, the periodical
