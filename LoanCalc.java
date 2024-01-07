@@ -30,10 +30,6 @@ public class LoanCalc {
 		System.out.println();
 		System.out.println("number of iterations: " + iterationCounter);
 
-		System.out.print("Periodical payment, using bi-section search: ");
-		System.out.printf("%.2f", bisectionSolver1(loan, rate, n, epsilon));
-		System.out.println();
-		System.out.println("number of iterations: " + iterationCounter);
 	}
 	
 	/**
@@ -47,7 +43,7 @@ public class LoanCalc {
     	double increment = 0.0001 ;
     	iterationCounter = 0 ; 
     	double x = loan / n ;
-    	while (Math.abs(endBalance(loan, rate, n, x)) >= epsilon)
+    	while (endBalance(loan, rate, n, x) >= epsilon)
     	{
     		x += increment ;
     		iterationCounter++; 
@@ -64,7 +60,7 @@ public class LoanCalc {
 	// Side effect: modifies the class variable iterationCounter.
 
 	//Second Version After Maya Told Me About The L H g thing)
-	    public static double bisectionSolver1(double loan, double rate, int n, double epsilon) {  
+	    public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
     	iterationCounter = 0 ; 
        	double L = loan / n ;
     	double H = loan ;
@@ -82,22 +78,22 @@ public class LoanCalc {
       }
 
       //My First Version Alone
-    public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
-    	iterationCounter = 0 ; 
-    	double x = loan / n ; 
-    	double lo = x ;
-    	double hi = loan ;
-    	while (Math.abs(endBalance(loan, rate, n, x)) >= epsilon)
-    	{
-    		if(endBalance(loan, rate, n, x) > 0)
-    			lo = x;
-    		else 
-    			hi = x;
-    		x = ( lo + hi ) / 2 ;
-    		iterationCounter++;
-    	}
-    	return x;
-      }
+ //   public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
+   // 	iterationCounter = 0 ; 
+    //	double x = loan / n ; 
+    //	double lo = x ;
+    //	double hi = loan ;
+    //	while (Math.abs(endBalance(loan, rate, n, x)) >= epsilon)
+    //	{
+    //		if(endBalance(loan, rate, n, x) > 0)
+    //			lo = x;
+    //		else 
+    //			hi = x;
+    //		x = ( lo + hi ) / 2 ;
+    //		iterationCounter++;
+    //	}
+    //	return x;
+      //}
 	
 	/**
 	* Computes the ending balance of a loan, given the sum of the loan, the periodical
