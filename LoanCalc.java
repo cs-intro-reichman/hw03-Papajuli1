@@ -43,7 +43,7 @@ public class LoanCalc {
     	double increment = 0.0001 ;
     	iterationCounter = 0 ; 
     	double x = loan / n ;
-    	while (endBalance(loan, rate, n, x) >= epsilon)
+    	while (Math.abs(endBalance(loan, rate, n, x)) >= epsilon)
     	{
     		x += increment ;
     		iterationCounter++; 
