@@ -16,6 +16,9 @@ public class Calendar {
 	 	{
 	 		advance();
 	 		debugDaysCounter++;
+			/* this will never be done, so why?
+			it is very strange and non logical to do this
+				*/
 	 		if (false) { 
 	 			break;
 	 		}
